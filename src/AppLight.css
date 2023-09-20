@@ -137,7 +137,7 @@ body{
     list-style: none;
     position: absolute; 
     top: 60px;
-    padding: 4px 4px;
+    padding: 4px 0px;
 }
 
 ::-webkit-scrollbar{
@@ -308,10 +308,9 @@ body{
 .dropdown-container{
     display: flex;
     align-items: center;
-    padding-top: 12px;
+    padding-top: 5px;
     justify-content: space-between;
     width:200px;
-    border: none;
 }
 .community-body-conatiner{
     display:flex;
@@ -697,7 +696,7 @@ body{
     font-size: 24px;
     margin-right: 12px;
 }
-.premium-text-light{
+.premium-text-ligt{
     font-size: 12px;
 }
 .premium-text-dark{

@@ -1,11 +1,18 @@
 import React, { useContext } from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
 import { DarkMode } from '../../App'
+import { UserLogedIn } from "../../App"
+
 
 const Logo = () => {
   const { darkMode } = useContext(DarkMode);
-  let src = (darkMode ? "/images/Reddit-Text-Black.png": "/images/redditText.svg" );
- 
+  const { logedIn } = useContext(UserLogedIn)
+  let src = "";
+  if(logedIn){
+  src =  darkMode ? "/images/Reddit-Text-Black.png": "/images/redditText.svg" ;
+  }else{
+     src = "/images/redditText.svg";
+  }
   
   return (
     <div className="logo-img">

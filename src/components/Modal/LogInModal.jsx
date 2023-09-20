@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import axios from "axios"
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import OathButtons from "./OathButtons";
 import {  ShowModalContext, UserLogedIn } from "../../App";
 import { getHeaderWithProjectIDAndContent } from "../../utils/configs";

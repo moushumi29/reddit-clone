@@ -24,12 +24,12 @@ const SecondTabLogedIn = () => {
             </div>
             <div className='second-tab-container'>
                 <div className='second-tab-container-nav'>
-                    <img src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png" />
+                    <img src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png" alt="img"/>
                     {/* <img src="https://www.redditstatic.com/desktop2x/img/id-cards/snoo-home@2x.png"/> */}
                 </div>
                 <div className={`second-tab-container-body-${darkMode?"dark":"light"}`}>
                     <div style={{ display: "flex" }}>
-                        <img src="https://www.redditstatic.com/desktop2x/img/id-cards/snoo-home@2x.png" />
+                        <img src="https://www.redditstatic.com/desktop2x/img/id-cards/snoo-home@2x.png" alt="img" />
                         <span className='text-home'>Home</span>
                     </div>
                     <p className='text'>Your personal Reddit frontpage. Come here

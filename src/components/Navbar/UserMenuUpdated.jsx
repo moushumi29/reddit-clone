@@ -1,22 +1,13 @@
-import React, { useContext, useState } from 'react'
-import { Avatar, Box, Button, Switch, Typography } from '@mui/material'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
-import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
-import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
-import EqualizerOutlinedIcon from '@mui/icons-material/EqualizerOutlined';
-import CampaignOutlinedIcon from '@mui/icons-material/CampaignOutlined';
+import React, { useContext } from 'react'
+import { Box, Button, Switch} from '@mui/material'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddIcon from '@mui/icons-material/Add';
-// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { FaRedditSquare } from 'react-icons/fa';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import { IoSparkles } from 'react-icons/io5';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { DarkMode, UserLogedIn } from '../../App';
-// import { logoutUser } from '../../features/authSlice';
-// import { toast } from 'react-toastify';
 
 const buttonStyles = {
   color: 'black',
@@ -38,7 +29,7 @@ const iconStyles = {
 }
 
 const UserMenuUpdated = () => {
-  const {logedIn, setLogedIn} = useContext(UserLogedIn);
+  const { setLogedIn} = useContext(UserLogedIn);
   const handleLogOut = () =>{
     sessionStorage.clear();
     setLogedIn(false)

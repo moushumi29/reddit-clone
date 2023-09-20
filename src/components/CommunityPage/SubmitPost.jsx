@@ -66,10 +66,8 @@ const SubmitPost = () => {
         <div className="community-body-conatiner">
             <div className='community-body-wrapper' style={{ paddingTop: "50px" }}>
                 <div className='body-1' >
-                    <div className={`submit-header-${darkMode?"dark":"light"}`} style={{ }}>Create a Post</div>
-                    <div className={`submit-body-${darkMode?"dark":"light"}`}style={{
-                       
-                    }}>
+                    <div className={`submit-header-${darkMode?"dark":"light"}`} >Create a Post</div>
+                    <div className={`submit-body-${darkMode?"dark":"light"}`}>
                         <div style={{ width: "100%", display: "flex" }}>
                             <div className={`submit-post-element-${darkMode?"dark":"light"}`} onClick={handleClick}>
                                 <div className='submit-post-icon'><IoDocumentText /></div>
@@ -89,7 +87,7 @@ const SubmitPost = () => {
                             {images && 
                             <div>
                             {selectedFile? (<div style={{justifyContent:"center", alignItems:"center"}}>
-                                <img src={selectedFile} alt="uploaded image" className='uploaded-image'/>
+                                <img src={selectedFile} alt="uploadedimage" className='uploaded-image'/>
                                 <div>
                                 <button className='full' onClick={handleClick}>Back to Post</button>
                                 <button className='full' onClick={()=> setSelectedFile('')}>Remove</button>

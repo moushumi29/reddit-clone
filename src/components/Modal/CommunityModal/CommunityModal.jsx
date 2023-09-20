@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { BsFillEyeFill, BsFillPersonFill } from "react-icons/bs";
@@ -10,7 +9,6 @@ const CommunityModal = ({ open, handleClose }) => {
   const [communityName, setCommunityName] = useState("");
   const [charactersRemaining, setCharcatersRemainig] = useState(21);
   const [communityType, setCommunityType] = useState("public");
-  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -53,11 +51,6 @@ const CommunityModal = ({ open, handleClose }) => {
 
   const handleCommunity = () =>{
     createSubReddit(communityName);
-    // const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    // if(!format.test(communityName)|| communityName.length < 3) {
-    //   setError("Community name must be between 3-21 characters, and can only contains letters, numbers, or underscores");
-    //   return;
-    // }
     handleClose();
     navigate("/communityPage");
     
@@ -74,7 +67,6 @@ const CommunityModal = ({ open, handleClose }) => {
             <span style={{ position: "relative", top: "28px", left: '10px', width: '20px', color: "#ddd" }}>r/</span>
             <input type="text" className='community-input' value={communityName} onChange={handleChange} />
             <span style={{ color: "#ddd", fontSize: "12px" }}>{charactersRemaining} Charcters remaining</span>
-            {error && <div style={{color:"red", fontSize:"12px"}}>{error}</div>}
             <div style={{ paddingTop: '1rem' }} >
               <div style={{ fontWeight: 600, paddingBottom:'10px' }}>Community Type</div>
               <div>

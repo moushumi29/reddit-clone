@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { createPortal } from 'react-dom';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import OathButtons from './OathButtons';
 import axios from 'axios';
 import { getHeaderWithProjectIDAndContent } from '../../utils/configs';

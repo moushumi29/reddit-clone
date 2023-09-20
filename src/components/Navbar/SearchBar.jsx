@@ -1,10 +1,5 @@
-// import { background } from '@chakra-ui/react/dist'
 import React, { useContext } from 'react'
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
 import { DarkMode, UserLogedIn } from '../../App';
-import { withStyles } from "@mui/material/styles"
 
 const SearchBar = () => {
   

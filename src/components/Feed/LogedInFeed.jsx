@@ -1,6 +1,5 @@
 import React from 'react'
 import CreatePostLink from '../CommunityPage/CreatePostLink'
-import AboutCommunity from './AboutCommunity'
 import HomeFeedPost from './HomeFeedPost'
 import SecondTabLogedIn from './SecondTabLogedIn'
 

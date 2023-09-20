@@ -24,7 +24,6 @@ export const DarkMode = createContext();
 function App(){
   const [showLogInModal, setShowLogInModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
-  const [showResetModal, setShowResetModal] = useState(false);
   const [logedIn, setLogedIn] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
@@ -49,7 +48,7 @@ function App(){
 
   return (
     <div>
-    <ShowModalContext.Provider value={{setShowLogInModal, setShowSignUpModal, setShowResetModal}}>
+    <ShowModalContext.Provider value={{setShowLogInModal, setShowSignUpModal}}>
       <UserLogedIn.Provider value={{logedIn, setLogedIn}}>
       <DarkMode.Provider value={{darkMode, setDarkMode}}>
       {logedIn ? <LogedInNavbar/>: <Navbar/>}

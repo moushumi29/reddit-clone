@@ -1,7 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { UserLogedIn } from '../../App'
+import React, { useState } from 'react'
 import Icons from './Icons';
-import UserMenu from './UserMenu';
 import UserMenuUpdated from './UserMenuUpdated';
 import { Button, Modal, Tooltip, Box } from '@mui/material';
 import { FaRedditSquare } from 'react-icons/fa';
@@ -10,9 +8,8 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 
 
 const LogOut = () => {
-    const {logedIn, setLogedIn } = useContext(UserLogedIn);
+
     const [openSettingModal, setOpenSettingModal] = useState(false);
-  const [openAddModal, setOpenAddModal] = useState(false);
   const username = sessionStorage.getItem("userInfo");
 const info = JSON.parse(username);
 

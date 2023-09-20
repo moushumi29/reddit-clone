@@ -4,7 +4,7 @@ const PopularCommunities = (props) => {
     const { name, image } = props;
   return (
     <div className='popular-community'>
-      <img src={image} />
+      <img src={image} alt='img'/>
       <div>r/{name}</div>
     </div>
   )

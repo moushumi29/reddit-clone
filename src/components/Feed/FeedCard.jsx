@@ -3,7 +3,7 @@ import { ShowModalContext } from '../../App';
 
 const FeedCard = (props) => {
   const { setShowLogInModal } = useContext(ShowModalContext)
-  const { content, likeCount, author, channel, createdAt, images } = props;
+  const { content, likeCount, author, channel, createdAt } = props;
 
   const handleClick = () =>{
     setShowLogInModal(true);
@@ -19,7 +19,6 @@ const FeedCard = (props) => {
           <div>By {author.name}</div>
         </div>
         <p className='content'>{content}</p>
-        <img src={images} className='feed-image' />
         <p className='created-at'>{createdAt}</p>
       </div>
       <div className='button-wrapper'>

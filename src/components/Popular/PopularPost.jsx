@@ -25,7 +25,7 @@ const PopularPost = () => {
           }
       }
   
-    const fetchPopularFeed = async() => {
+    const fetchPopularFeed = async(page) => {
       const config = getHeaderWithProjectId();
       setIsLoading(true);
       try{
@@ -45,7 +45,7 @@ const PopularPost = () => {
 
     
     useEffect(()=>{
-        window.addEventListener("scroll", handleInfiniteScroll)
+        window.addEventListener("scroll", handleInfiniteScroll);
         return () => window.removeEventListener("scroll", handleInfiniteScroll)
       })
     return (

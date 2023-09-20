@@ -8,7 +8,7 @@ const LogoNotLogedIn = () => {
   return (
     <div className="logo-img">
           {/* <MenuIcon sx={{color: "white", display: {sm:"block", lg:"none"}}} /> */}
-        <img src="/images/redditFace.svg" className="image"/>
+        <img src="/images/redditFace.svg" className="image" alt=''/>
         <img src={src} className="image-text" alt='' />
     </div>
   )

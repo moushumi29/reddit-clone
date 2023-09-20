@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FaReddit } from 'react-icons/fa'
 
 const Header = () => {
-    const [isJoined, setJoined] = useState(false);
+    // const [isJoined, setJoined] = useState(false);
   return (
     <div style={{display:"flex", flexDirection:"column", width:"100%", height:"146px"}}>
       <div style={{height:"50%", backgroundColor:"#33a8ff"}}></div>
@@ -17,7 +17,7 @@ const Header = () => {
                     <div>r/name</div>
                 </div>
             </div>
-            <button className='full' style={{padding:"2px 10px", height:"30px"}}>{isJoined ? "Joined": "Join"}</button>
+            <button className='full' style={{padding:"2px 10px", height:"30px"}}>Join</button>
         </div>
     </div>
     </div>

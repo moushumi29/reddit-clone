@@ -2,9 +2,7 @@ import React, { useContext } from 'react'
 import { BsArrowUpRightCircle, BsChatDots } from "react-icons/bs";
 import { GrAdd } from "react-icons/gr";
 import {
-  IoFilterCircleOutline,
-  IoNotificationsOutline,
-  IoVideocamOutline
+  IoNotificationsOutline
 } from "react-icons/io5";
 import { ImBullhorn } from "react-icons/im"
 import { useNavigate } from 'react-router-dom';

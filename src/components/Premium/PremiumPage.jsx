@@ -1,14 +1,13 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const PremiumPage = () => {
-    const navigate = useNavigate();
-    const monthlyPlan = () =>{
-        navigate('https://buy.stripe.com/test_eVa2av8fga058qQdQQ')
-    }
-    const yearlyPlan = () =>{
-        navigate('https://buy.stripe.com/test_dR6eXhcvwgotayYcMN')
-    }
+    // const monthlyPlan = () =>{
+    //     navigate('https://buy.stripe.com/test_eVa2av8fga058qQdQQ')
+    // }
+    // const yearlyPlan = () =>{
+    //     navigate('https://buy.stripe.com/test_dR6eXhcvwgotayYcMN')
+    // }
     return (
         <>
             <div className='premium-page-container'>

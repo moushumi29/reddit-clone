@@ -1,6 +1,5 @@
 import React from 'react'
 import CreatePostLink from './CreatePostLink'
-import SubmitPost from './SubmitPost'
 import ChannelPost from '../Feed/ChannelPost'
 import AboutCommunity from '../Feed/AboutCommunity'
 

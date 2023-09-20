@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import { IoArrowDownCircleOutline, IoArrowUpCircleOutline, IoArrowUpCircleSharp } from 'react-icons/io5'
 import { BsChat } from "react-icons/bs"
 import { AiOutlineDelete } from "react-icons/ai"
 import Moment from 'react-moment'
@@ -33,7 +32,7 @@ const HomePost = (props) => {
           }
         })
         const data = await res.json();
-        if(data.status == "success"){
+        if(data.status === "success"){
           setLike((prevState)=> prevState + 1 );
           setColorUp("#ff4500")
           setColorDown("#ddd")
@@ -57,7 +56,7 @@ const HomePost = (props) => {
           }
         })
         const data = await res.json();
-        if(data.status == "success"){
+        if(data.status === "success"){
           setLike((prevState)=> prevState - 1 );
           setColorUp("#ddd");
           setColorDown("#ff4500")
@@ -81,7 +80,7 @@ const HomePost = (props) => {
         })
         const data = await res.json();
        
-          // setComments(data);
+          setComments(data);
           console.log(data);
       }catch(err){
         console.log(err);
@@ -127,7 +126,7 @@ const HomePost = (props) => {
         </div>
         <div>
           {comments && comments.map((comment, i)=>{
-            <div key={i}>{comment}</div>
+            return <div key={i}>{comment}</div>
           })}
         </div>
       </div>

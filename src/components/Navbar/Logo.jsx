@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import MenuIcon from '@mui/icons-material/Menu';
 import { DarkMode } from '../../App'
 import { UserLogedIn } from "../../App"
 
@@ -17,8 +16,8 @@ const Logo = () => {
   return (
     <div className="logo-img">
           {/* <MenuIcon sx={{color: "white", display: {sm:"block", lg:"none"}}} /> */}
-        <img src="/images/redditFace.svg" className="image"/>
-        <img src={src} className="image-text" />
+        <img src="/images/redditFace.svg" className="image" alt='img'/>
+        <img src={src} className="image-text" alt='img'/>
     </div>
   )
 }

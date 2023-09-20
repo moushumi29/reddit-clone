@@ -1,5 +1,5 @@
 import React from 'react'
-import { IoArrowDownCircleOutline, IoArrowUpCircleOutline, IoArrowUpCircleSharp } from 'react-icons/io5'
+import { IoArrowDownCircleOutline, IoArrowUpCircleOutline } from 'react-icons/io5'
 import { BsChat } from "react-icons/bs"
 import { AiOutlineDelete } from "react-icons/ai"
 const ChannelPost = () => {

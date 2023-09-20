@@ -1,11 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FeedCard from './FeedCard';
-import { UserLogedIn } from '../../App';
-import ChannelPost from './ChannelPost';
-import CommunityBody from '../CommunityPage/CommunityBody';
+
 
 const Feed = () => {
-    const {logedIn} = useContext(UserLogedIn);
     const proectId = "dbt6ga9tkodz";
     const [feedsList, setFeedsList] = useState([]);
     const [page, setPage] = useState(1);

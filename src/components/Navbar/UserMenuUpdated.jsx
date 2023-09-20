@@ -19,7 +19,6 @@ import { DarkMode, UserLogedIn } from '../../App';
 // import { toast } from 'react-toastify';
 
 const buttonStyles = {
-  color: 'black',
   fontWeight: '100',
   width: '100%',
   p: '5px 20px',
@@ -33,6 +32,7 @@ const buttonStyles = {
 }
 
 const iconStyles = {
+  
   fontSize: '19px',
   mr: '5px'
 }
@@ -54,16 +54,16 @@ const username = sessionStorage.getItem("userInfo");
 const info = JSON.parse(username);
 
   return (
-    <Box sx={{ border: '1px solid #d5d1d1', borderRadius: '4px', backgroundColor: `${darkMode?"#383838":"white"}`,width:'220px'}}>
+    <Box sx={{ border: '1px solid #d5d1d1', borderRadius: '4px', backgroundColor: `${darkMode?"#383838":"white"}`, color:  `${darkMode?"white":"black"}`,width:'220px'}}>
 
       <Box sx={{ p: '20px', borderBottom: '1px solid #d5d1d1', mt: '10px' }}>
       <div style={{ color:"#ddd", display:"flex",fontSize:"30px", alignItems:"center", cursor:"pointer", width:"150px"}}>
           <FaRedditSquare/>
           <div style={{display:"flex", flexDirection:"column", paddingLeft:"4px"}}>
-            <span style={{color:"black", fontSize:"12px"}}>{info?.name}</span>
+            <span style={{color:`${darkMode?"white":"black"}`, fontSize:"12px"}}>{info?.name}</span>
             <div style={{display:"flex", alignItems:"center"}}>
               <IoSparkles style={{color:"#FF4500", fontSize:"12px"}}/>
-              <span style={{color:"black", fontSize:"12px"}}>1 karma</span>
+              <span style={{color:`${darkMode?"white":"black"}`, fontSize:"12px"}}>1 karma</span>
             </div>
           </div>
         <ChevronDownIcon/>
@@ -73,10 +73,10 @@ const info = JSON.parse(username);
       <Box>
         <Box sx={{ borderBottom: '1px solid #d5d1d1', py: '10px' }}>
           <Box>
-            <Button sx={buttonStyles}>My Stuff</Button>
-            <Button sx={buttonStyles}><AccountCircleIcon sx={iconStyles} onClick={()=>navigate('/comingSoon')} /> Profile</Button>
-            <Button sx={buttonStyles}><LocalPoliceIcon sx={iconStyles} onClick={()=>navigate('/premiumPage')}/> Premium</Button>
-            <Button sx={buttonStyles}><AddIcon sx={iconStyles} onClick={()=>navigate('/submitPost')} /> Create a Post</Button>
+            <Button sx={{...buttonStyles, color:`${darkMode?"white":"black"}`}}>My Stuff</Button>
+            <Button sx={{...buttonStyles, color:`${darkMode?"white":"black"}`}}><AccountCircleIcon sx={iconStyles} onClick={()=>navigate('/comingSoon')} /> Profile</Button>
+            <Button sx={{...buttonStyles, color:`${darkMode?"white":"black"}`}}><LocalPoliceIcon sx={iconStyles} onClick={()=>navigate('/premiumPage')}/> Premium</Button>
+            <Button sx={{...buttonStyles, color:`${darkMode?"white":"black"}`}}><AddIcon sx={iconStyles} onClick={()=>navigate('/submitPost')} /> Create a Post</Button>
             {/* <Button sx={buttonStyles}><CampaignOutlinedIcon sx={iconStyles} /> Your Content & Stats</Button>
             <Button sx={buttonStyles}><BookmarksOutlinedIcon sx={iconStyles} /> Bookmarks</Button>
             <Button sx={buttonStyles}><EditCalendarOutlinedIcon sx={iconStyles} /> Drafts</Button>
@@ -85,13 +85,13 @@ const info = JSON.parse(username);
         </Box>
         <Box sx={{ borderBottom: '1px solid #d5d1d1', py: '10px' }}>
           <Box>
-            <Button sx={buttonStyles} onClick={toggleDarkMode}>
+            <Button sx={{...buttonStyles, color:`${darkMode?"white":"black"}`}} onClick={toggleDarkMode}>
               {darkMode ? 'Light Mode' : 'Dark Mode'}
               <Switch sx={{ ml: '30px' }} checked={darkMode} readOnly />
             </Button>
-            <Button sx={buttonStyles}>Settings</Button>
-            <Button sx={buttonStyles}>Help</Button>
-            <Button sx={buttonStyles} onClick={handleLogOut}>Logout</Button>
+            <Button sx={{...buttonStyles, color:`${darkMode?"white":"black"}`}}>Settings</Button>
+            <Button sx={{...buttonStyles, color:`${darkMode?"white":"black"}`}}>Help</Button>
+            <Button sx={{...buttonStyles, color:`${darkMode?"white":"black"}`}} onClick={handleLogOut}>Logout</Button>
           </Box>
         </Box>
       </Box>

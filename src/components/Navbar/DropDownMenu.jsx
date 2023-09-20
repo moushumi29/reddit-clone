@@ -5,7 +5,7 @@ import Communities from '../Modal/CommunityModal/Communities';
 import { useNavigate } from 'react-router-dom';
 
 export default function DropDownMenu() {
- const [open, setOpen] = useState('false');
+ const [open, setOpen] = useState(false);
   const homeMenuRef = useRef(null);
   const navigate = useNavigate();
 

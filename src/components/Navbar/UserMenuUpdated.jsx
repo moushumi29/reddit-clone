@@ -54,7 +54,7 @@ const username = sessionStorage.getItem("userInfo");
 const info = JSON.parse(username);
 
   return (
-    <Box sx={{ border: '1px solid #d5d1d1', borderRadius: '4px', backgroundColor: 'white' ,width:'220px'}}>
+    <Box sx={{ border: '1px solid #d5d1d1', borderRadius: '4px', backgroundColor: `${darkMode?"#383838":"white"}`,width:'220px'}}>
 
       <Box sx={{ p: '20px', borderBottom: '1px solid #d5d1d1', mt: '10px' }}>
       <div style={{ color:"#ddd", display:"flex",fontSize:"30px", alignItems:"center", cursor:"pointer", width:"150px"}}>

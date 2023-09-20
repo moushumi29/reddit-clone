@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ShowModalContext } from '../../App';
 
 const FeedCard = (props) => {
+  const { setShowLogInModal } = useContext(ShowModalContext)
   const { content, likeCount, author, channel, createdAt, images } = props;
+
+  const handleClick = () =>{
+    setShowLogInModal(true);
+  }
   return (
     <div className='feed-wrapper'>
       <div className='feed-container'>
@@ -17,9 +23,9 @@ const FeedCard = (props) => {
         <p className='created-at'>{createdAt}</p>
       </div>
       <div className='button-wrapper'>
-        <button className='button'>vote {likeCount}</button>
-        <button className='button'>Comment</button>
-        <button className='button'>Share</button>
+        <button className='button' onClick={handleClick}>vote {likeCount}</button>
+        <button className='button' onClick={handleClick}>Comment</button>
+        <button className='button' onClick={handleClick}>Share</button>
       </div>
     </div>
   )

@@ -1,18 +1,15 @@
-import React, { useContext } from 'react'
-import MenuIcon from '@mui/icons-material/Menu';
-import { UserLogedIn } from '../../App';
+import React from 'react'
 
 const LogoNotLogedIn = () => {
-    const { logedIn } = useContext(UserLogedIn)
  
-  let src =  "/images/redditText.svg";
+  let src =  "/images/Reddit-Text-Black.png";
  
   
   return (
     <div className="logo-img">
           {/* <MenuIcon sx={{color: "white", display: {sm:"block", lg:"none"}}} /> */}
         <img src="/images/redditFace.svg" className="image"/>
-        <img src={src} className="image-text" />
+        <img src={src} className="image-text" alt='' />
     </div>
   )
 }

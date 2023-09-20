@@ -1,0 +1,130 @@
+import React, { useContext, useState } from "react";
+import { createPortal } from "react-dom";
+import axios from "axios"
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import OathButtons from "./OathButtons";
+import {  ShowModalContext, UserLogedIn } from "../../App";
+import { getHeaderWithProjectIDAndContent } from "../../utils/configs";
+
+const LogInModal = () => {
+  const navigate = useNavigate();
+  const {setLogedIn} = useContext(UserLogedIn);
+
+  const {setShowSignUpModal} = useContext(ShowModalContext);
+  const {setShowLogInModal} = useContext(ShowModalContext);
+  const [passwordError, setErrorPassword] = useState('');
+  const [emailError, setErrorEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [color, setColor] = useState('');
+  const [userInfo, setLoginInfo] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setLoginInfo({...userInfo, [name] : value})
+    console.log(userInfo)
+  }
+  const handleClick = () =>{
+    setShowLogInModal(false);
+    setShowSignUpModal(true);
+  }
+
+  const logIn = async(userInfo) =>{
+    userInfo.appType = "reddit"
+    const headerConfig = getHeaderWithProjectIDAndContent();
+    try{
+      const res = await axios.post("https://academics.newtonschool.co/api/v1/user/login", 
+        userInfo,
+        headerConfig
+      );
+      console.log('res', res)
+      if (res.data.token) {
+        const accessToken = res.data.token;
+        sessionStorage.setItem("authToken", accessToken);
+        sessionStorage.setItem("userInfo", JSON.stringify(res.data.data))
+        setLogedIn(true);
+      } else {
+        setMessage("Invalid API response format.");
+        setColor("red");
+      }
+    } catch (err) {
+      if (err.response && err.response.data && err.response.data.message) {
+        setMessage(err.response.data.message);
+        setColor("red")
+      } else {
+        setMessage("An error occurred while making the login request.");
+        setColor("red")
+        console.error("Error:", err);
+      }
+    }
+  };
+
+  const handleLoginClick = (e) =>{
+    e.preventDefault();
+    const errorValues = Object.values(userInfo);
+    const isEmptyVal = errorValues.some((el) => el === '');
+    const {email, password} = userInfo;
+    if(isEmptyVal){
+      setMessage("All Fields must be filled");
+      setColor('red')
+    }else if(!email.includes('@')){
+      setErrorEmail("Email is invalid");
+      setMessage("");
+      setColor('red')
+    }else if(password.length < 4){
+      setErrorEmail('');
+      setErrorPassword("Password length must be greater than 4.");
+      setColor('red');
+    }
+    else{
+      setErrorEmail('');
+      setErrorPassword('');
+      setMessage('Congrats! You are successfully logged in.');
+      setColor('green')
+      logIn(userInfo);
+      navigate("/")
+      setShowLogInModal(false);
+      // console.log(signUpInfo);
+    }
+
+  }
+
+  // const handleOnSubmit = (e) => {
+  //   if(error){
+  //     return;
+  //   }
+  //   e.preventDefault();
+  //   logIn(userInfo);
+  //   // navigate("/");
+  //   setShowLogInModal(false);
+  // }
+  return createPortal((
+    <div className="modal-container">
+      <div className="modal-wrapper">
+        <div className="title">Log In</div>
+        <OathButtons />
+        <div>OR</div>
+        <form >
+          <input name="email" type="email" placeholder="email" onChange={handleOnChange} />
+          {emailError && <p style={{color: color}}>{emailError}</p>}
+          <input name="password" type="password" placeholder="password" onChange={handleOnChange} />
+          {passwordError && <p style={{color: color}}>{passwordError}</p>}
+          {message && <p style={{ color: color, fontSize: "14px" }}>{message}</p>}
+          <button className="btn" onClick={handleLoginClick}>Log In</button>
+          <div>
+            <span>Not a Redditor? <span className="signUp" 
+            onClick={handleClick}
+            >SIGN UP</span></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  ), document.getElementById('modal'))
+
+
+
+}
+
+export default LogInModal

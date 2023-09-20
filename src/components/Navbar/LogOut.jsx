@@ -24,10 +24,10 @@ const info = JSON.parse(username);
       <div style={{ color:"#ddd", display:"flex",fontSize:"30px", alignItems:"center", cursor:"pointer", width:"150px"}}>
           <FaRedditSquare/>
           <div style={{display:"flex", flexDirection:"column", paddingLeft:"4px"}}>
-            <span style={{color:"black", fontSize:"12px"}}>{info?.name}</span>
+            <span style={{color: `${darkMode?"white":"black"}`, fontSize:"12px"}}>{info?.name}</span>
             <div style={{display:"flex", alignItems:"center"}}>
               <IoSparkles style={{color:"#FF4500", fontSize:"12px"}}/>
-              <span style={{color:"black", fontSize:"12px"}}>1 karma</span>
+              <span style={{color: `${darkMode?"white":"black"}`, fontSize:"12px"}}>1 karma</span>
             </div>
           </div>
         <ChevronDownIcon/>

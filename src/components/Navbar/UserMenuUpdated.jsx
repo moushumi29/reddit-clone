@@ -51,10 +51,10 @@ const info = JSON.parse(username);
       <div style={{ color:"#ddd", display:"flex",fontSize:"30px", alignItems:"center", cursor:"pointer", width:"150px"}}>
           <FaRedditSquare/>
           <div style={{display:"flex", flexDirection:"column", paddingLeft:"4px"}}>
-            <span style={{color:"black", fontSize:"12px"}}>{info?.name}</span>
+            <span style={{color: `${darkMode?"white":"black"}`, fontSize:"12px"}}>{info?.name}</span>
             <div style={{display:"flex", alignItems:"center"}}>
               <IoSparkles style={{color:"#FF4500", fontSize:"12px"}}/>
-              <span style={{color:"black", fontSize:"12px"}}>1 karma</span>
+              <span style={{color: `${darkMode?"white":"black"}`, fontSize:"12px"}}>1 karma</span>
             </div>
           </div>
         <ChevronDownIcon/>
@@ -64,10 +64,10 @@ const info = JSON.parse(username);
       <Box>
         <Box sx={{ borderBottom: '1px solid #d5d1d1', py: '10px' }}>
           <Box>
-            <Button sx={buttonStyles}>My Stuff</Button>
-            <Button sx={buttonStyles}><AccountCircleIcon sx={iconStyles} onClick={()=>navigate('/comingSoon')} /> Profile</Button>
-            <Button sx={buttonStyles}><LocalPoliceIcon sx={iconStyles} onClick={()=>navigate('/premiumPage')}/> Premium</Button>
-            <Button sx={buttonStyles}><AddIcon sx={iconStyles} onClick={()=>navigate('/submitPost')} /> Create a Post</Button>
+            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}>My Stuff</Button>
+            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}><AccountCircleIcon sx={iconStyles} onClick={()=>navigate('/comingSoon')} /> Profile</Button>
+            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}><LocalPoliceIcon sx={iconStyles} onClick={()=>navigate('/premiumPage')}/> Premium</Button>
+            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}><AddIcon sx={iconStyles} onClick={()=>navigate('/submitPost')} /> Create a Post</Button>
             {/* <Button sx={buttonStyles}><CampaignOutlinedIcon sx={iconStyles} /> Your Content & Stats</Button>
             <Button sx={buttonStyles}><BookmarksOutlinedIcon sx={iconStyles} /> Bookmarks</Button>
             <Button sx={buttonStyles}><EditCalendarOutlinedIcon sx={iconStyles} /> Drafts</Button>

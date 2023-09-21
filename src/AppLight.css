@@ -624,6 +624,10 @@ body{
     color: #ddd;
     font-size: 14px;
 }
+.comment-section{
+    font-size: 12px;
+    padding: 10px 10px;
+}
 .about-community-container{
     position: sticky;
     top: 74px;

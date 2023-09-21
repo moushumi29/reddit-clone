@@ -124,7 +124,7 @@ const HomePost = (props) => {
         </div>
         <div>
           {comments && comments.map((comment, i)=>{
-            return <div key={i}>{comment.content}</div>
+            return <div key={i} className='comment-section'>{comment.content}</div>
           })}
         </div>
       </div>

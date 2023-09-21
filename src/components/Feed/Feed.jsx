@@ -13,7 +13,7 @@ const Feed = () => {
         try {
           if(window.innerHeight + document.documentElement.scrollTop + 1 >= 
             document.documentElement.scrollHeight){
-              if(page <9){
+              if(page <8){
               setPage((prev) => prev+1)
               }
             }

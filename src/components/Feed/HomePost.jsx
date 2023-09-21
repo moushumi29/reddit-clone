@@ -70,9 +70,7 @@ const HomePost = (props) => {
       try{
         const res = await fetch(`https://academics.newtonschool.co/api/v1/reddit/post/${postId}/comments`,
         {
-          body: {
-            postId: `${postId}`,
-          },
+          method:"GET",
           headers: {
             Authorization: `Bearer ${token}`,
             projectId: `${projectId}`,

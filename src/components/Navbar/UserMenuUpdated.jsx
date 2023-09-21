@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Box, Button, Switch} from '@mui/material'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddIcon from '@mui/icons-material/Add';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaRedditSquare } from 'react-icons/fa';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import { IoSparkles } from 'react-icons/io5';
@@ -29,10 +29,12 @@ const iconStyles = {
 }
 
 const UserMenuUpdated = () => {
+  const navigate = useNavigate();
   const { setLogedIn} = useContext(UserLogedIn);
   const handleLogOut = () =>{
     sessionStorage.clear();
     setLogedIn(false)
+    navigate("/")
 }
 
  const { darkMode, setDarkMode } = useContext(DarkMode);
@@ -40,7 +42,7 @@ const UserMenuUpdated = () => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-  const navigate = useNavigate();
+ 
 const username = sessionStorage.getItem("userInfo");
 const info = JSON.parse(username);
 
@@ -65,9 +67,9 @@ const info = JSON.parse(username);
         <Box sx={{ borderBottom: '1px solid #d5d1d1', py: '10px' }}>
           <Box>
             <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}>My Stuff</Button>
-            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}><AccountCircleIcon sx={iconStyles} onClick={()=>navigate('/comingSoon')} /> Profile</Button>
-            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}><LocalPoliceIcon sx={iconStyles} onClick={()=>navigate('/premiumPage')}/> Premium</Button>
-            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}><AddIcon sx={iconStyles} onClick={()=>navigate('/submitPost')} /> Create a Post</Button>
+            <Link to='/comingSoon'><Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}><AccountCircleIcon sx={iconStyles} onClick={()=>navigate()} /> Profile</Button></Link>
+            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}} onClick={()=>navigate('/premiumPage')}><LocalPoliceIcon sx={iconStyles}/> Premium</Button>
+            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}} onClick={()=>navigate('/submitPost')}><AddIcon sx={iconStyles}/> Create a Post</Button>
             {/* <Button sx={buttonStyles}><CampaignOutlinedIcon sx={iconStyles} /> Your Content & Stats</Button>
             <Button sx={buttonStyles}><BookmarksOutlinedIcon sx={iconStyles} /> Bookmarks</Button>
             <Button sx={buttonStyles}><EditCalendarOutlinedIcon sx={iconStyles} /> Drafts</Button>
@@ -76,13 +78,14 @@ const info = JSON.parse(username);
         </Box>
         <Box sx={{ borderBottom: '1px solid #d5d1d1', py: '10px' }}>
           <Box>
-            <Button sx={buttonStyles} onClick={toggleDarkMode}>
+          <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}>View Options</Button>
+            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}} onClick={toggleDarkMode}>
               {darkMode ? 'Light Mode' : 'Dark Mode'}
               <Switch sx={{ ml: '30px' }} checked={darkMode} readOnly />
             </Button>
-            <Button sx={buttonStyles}>Settings</Button>
-            <Button sx={buttonStyles}>Help</Button>
-            <Button sx={buttonStyles} onClick={handleLogOut}>Logout</Button>
+            {/* <Button sx={buttonStyles}>Settings</Button>
+            <Button sx={buttonStyles}>Help</Button> */}
+            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}} onClick={handleLogOut}>Logout</Button>
           </Box>
         </Box>
       </Box>

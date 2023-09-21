@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Icons from './Icons';
 import UserMenuUpdated from './UserMenuUpdated';
 import { Button, Modal, Tooltip, Box } from '@mui/material';
 import { FaRedditSquare } from 'react-icons/fa';
 import { IoSparkles } from 'react-icons/io5';
 import { ChevronDownIcon } from '@chakra-ui/icons';
+import { DarkMode } from '../../App';
 
 
 const LogOut = () => {
-
+  const { darkMode } = useContext(DarkMode);
     const [openSettingModal, setOpenSettingModal] = useState(false);
   const username = sessionStorage.getItem("userInfo");
 const info = JSON.parse(username);
@@ -20,7 +21,7 @@ const info = JSON.parse(username);
       {/* <UserMenuUpdated/> */}
       <Tooltip title="Open settings">
             <Button onClick={()=>setOpenSettingModal(true)} sx={{ p: 0, textTransform: 'none' }}>
-            <Box sx={{ p: '20px', borderBottom: '1px solid #d5d1d1', mt: '10px' }}>
+            <Box sx={{ p: '20px', mt: '10px' }}>
       <div style={{ color:"#ddd", display:"flex",fontSize:"30px", alignItems:"center", cursor:"pointer", width:"150px"}}>
           <FaRedditSquare/>
           <div style={{display:"flex", flexDirection:"column", paddingLeft:"4px"}}>

@@ -308,7 +308,7 @@ body{
 .dropdown-container{
     display: flex;
     align-items: center;
-    padding-top: 5px;
+    padding-top: 12px;
     justify-content: space-between;
     width:200px;
 }
@@ -330,7 +330,7 @@ body{
 }
 .body-2{
     /* border: 1px solid green; */
-    flex-grow: 1;
+    width: 320px;
 }
 .createPost-container-light{
     display:flex;

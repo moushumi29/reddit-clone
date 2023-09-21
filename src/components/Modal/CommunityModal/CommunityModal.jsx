@@ -32,7 +32,7 @@ const CommunityModal = ({ open, handleClose }) => {
       {
         method: "POST",
         body: {
-          title: communityName,
+          title: `${communityName}`,
           description: `This is a subreddit for ${communityName} channel`,
           images: "postImage",
           appType: 'reddit'

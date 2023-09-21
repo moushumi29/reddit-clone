@@ -78,7 +78,7 @@ const HomePost = (props) => {
         })
         const data = await res.json();
        
-          setComments(data);
+          setComments(data.data);
           console.log(data);
       }catch(err){
         console.log(err);

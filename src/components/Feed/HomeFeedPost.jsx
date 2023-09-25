@@ -8,7 +8,7 @@ const HomeFeedPost = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleInfiniteScroll = async() =>{
-      console.log("scroll-height", document.documentElement.scrollHeight)
+      // console.log("scroll-height", document.documentElement.scrollHeight)
         try {
           if(window.innerHeight + document.documentElement.scrollTop + 1 >= 
             document.documentElement.scrollHeight){

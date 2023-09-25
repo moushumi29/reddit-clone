@@ -12,7 +12,7 @@ const PopularPost = () => {
     const [popularList, setPopularList] = useState([]);
 
     const handleInfiniteScroll = async() =>{
-        console.log("scroll-height", document.documentElement.scrollHeight)
+        // console.log("scroll-height", document.documentElement.scrollHeight)
           try {
             if(window.innerHeight + document.documentElement.scrollTop + 1 >= 
               document.documentElement.scrollHeight){
@@ -30,7 +30,7 @@ const PopularPost = () => {
       setIsLoading(true);
       try{
         const res = await axios.get(`https://academics.newtonschool.co/api/v1/reddit/channel?limit=10&page=${page}`, config);
-        console.log("PopularRes", res.data.data);
+        // console.log("PopularRes", res.data.data);
         setPopularList((prev) => [...prev, ...res.data.data]);
   
       }catch(err){
@@ -51,9 +51,9 @@ const PopularPost = () => {
     return (
         <div>
             {isLoading ? <div>Loading</div> :
-                (popularList.length && popularList.map(({ description, image, name, owner, createdAt, _id, _V }) => {
+                (popularList.length && popularList.map(({ description, image, name, owner, createdAt}, index) => {
                     return (
-                        <div style={{ padding: "12px 0px" }} key={_id}>
+                        <div style={{ padding: "12px 0px" }} key={index}>
                             <div className={`post-conatiner-${darkMode?"dark":"light"}`}>
                                 {/* <div className="like-area">
                 <div className="post-icons"  style={{color: colorUp}} onClick={onClickUpvote}><ImArrowUp/></div>
@@ -64,7 +64,7 @@ const PopularPost = () => {
                                     <div className={`content-wrapper-${darkMode?"dark":"light"}`}>
                                         <div className='profile-container'>
                                             <div className='channel-container'>
-                                                <img src={owner.profileImage} alt={name} />
+                                                <img src={owner.profileImage} alt={name} className='popular-img'/>
                                                 <span className={`channel-name-${darkMode?"dark":"light"}`}>r/{name}</span>
                                                 
                                             </div>
@@ -72,12 +72,12 @@ const PopularPost = () => {
                                     </div>
                                     {/* <div style={{fontSize:'16px', fontWeight:"600", paddingBottom:"8px"}}>{title}</div> */}
                                     <div className={`content-home-${darkMode?"dark":"light"}`}>{description}</div>
-                                    <div>
+                                    <div className='popular-img-container'>
                                         <img src={image} alt={name} className='popular-channel-image'/>
                                     </div>
                                     <div>
-                                            <span>Owner: u/{owner.name}</span>
-                                            <span><RiCakeLine/> <Moment fromNow>{createdAt}</Moment></span>
+                                            <span>Owner: u/{owner.name} </span>
+                                            <span> <RiCakeLine/> <Moment fromNow>{createdAt}</Moment></span>
                                     </div>
                                 </div>
                             </div>

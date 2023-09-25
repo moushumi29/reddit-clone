@@ -16,6 +16,8 @@ import SubmitPost from './components/CommunityPage/SubmitPost';
 import PremiumPage from './components/Premium/PremiumPage';
 import ComingSoon from './pages/ComingSoon';
 import PopularComponent from './components/Popular/PopularComponent';
+import Notification from './pages/comigSoon/Notification';
+import Message from './pages/comigSoon/Message';
 
 export const ShowModalContext = createContext();
 export const UserLogedIn = createContext();
@@ -67,6 +69,8 @@ function App(){
       <Route path='/premiumPage' element={<PremiumPage/>} />
       <Route path='/comingSoon' element={<ComingSoon/>} />
       <Route path='/popular' element={<PopularComponent/>} />
+      <Route path='/notification' element={<Notification/>} />
+      <Route path='/message' element={<Message/>} />
       <Route path='/login' element={<LogInModal/>}/>
       <Route path='/signUp' element={<SignUpModal/>}/>
     </Routes>

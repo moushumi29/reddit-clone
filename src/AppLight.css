@@ -608,8 +608,15 @@ body{
     color: black;
 }
 .popular-channel-image{
+    width: 200px;
+    height: 200px;
+    margin-top: 60px;
+}
+.popular-img-container{
     width: 100%;
     height: 320px;
+    border: 1px solid #ddd;
+    text-align: center;
 }
 .post-btn-light{
     border: none;
@@ -925,6 +932,18 @@ body{
 }
 .footer-premium ul li a{
     color: #ddd;
+}
+.coming-soon{
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.coming-soon img{
+    width: 50%;
+    height: 100vh;
+
+    
 }
 @media  screen and (max-width: 680px) {
     .image-text{

@@ -18,10 +18,10 @@ const Icons = () => {
         <div className={`icons-wrapper-${darkMode?"dark":"light"}`} style={{fontSize:"22px"}} onClick={()=>navigate('/popular')}>
             <BsArrowUpRightCircle/>
         </div>
-        <div className={`icons-wrapper-${darkMode?"dark":"light"}`} style={{fontSize:"24px"}} onClick={()=> navigate('/comingSoon')}>
+        <div className={`icons-wrapper-${darkMode?"dark":"light"}`} style={{fontSize:"24px"}} onClick={()=> navigate('/message')}>
         <BsChatDots/>
         </div>
-        <div className={`icons-wrapper-${darkMode?"dark":"light"}`} style={{fontSize:"24px"}} onClick={()=>navigate('/comingSoon')}>
+        <div className={`icons-wrapper-${darkMode?"dark":"light"}`} style={{fontSize:"24px"}} onClick={()=>navigate('/notification')}>
             <IoNotificationsOutline/>
         </div>
         <div className={`icons-wrapper-${darkMode?"dark":"light"}`} style={{fontSize:"24px"}} onClick={()=>navigate('/submitPost')}>

@@ -60,7 +60,7 @@ const SignUpModal = () => {
     if(isEmptyVal){
       setMessage("All Fields must be filled");
       setColor('red')
-    }else if(!email.includes('@')){
+    }else if(!email.includes('@gmail.com')){
       setErrorEmail("Email is invalid");
       setMessage("");
       setColor('red')

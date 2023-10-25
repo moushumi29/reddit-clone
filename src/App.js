@@ -5,11 +5,9 @@ import LogInModal from './components/Modal/LogInModal';
 import SignUpModal from './components/Modal/SignUpModal';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import SideNavBar from './components/SideBar/SideNavBar';
 import GoToTop from './pages/GoToTop';
 import { createContext, useState } from 'react';
 import LogedInNavbar from './components/Navbar/LogedInNavbar';
-import Popular from './components/Popular/Popular';
 import CommunityBody from './components/CommunityPage/CommunityBody';
 import CommunityPage from './components/CommunityPage/CommunityPage';
 import SubmitPost from './components/CommunityPage/SubmitPost';
@@ -18,6 +16,7 @@ import ComingSoon from './pages/ComingSoon';
 import PopularComponent from './components/Popular/PopularComponent';
 import Notification from './pages/comigSoon/Notification';
 import Message from './pages/comigSoon/Message';
+import PopularPage from './pages/PopularPage';
 
 export const ShowModalContext = createContext();
 export const UserLogedIn = createContext();
@@ -59,10 +58,11 @@ function App(){
     
     {showLogInModal && <LogInModal/>}
     {showSignUpModal && <SignUpModal/>}
-    {!logedIn && <SideNavBar/>}
+    {/* {!logedIn && <SideNavBar/>} */}
   
     <Routes>
       <Route path='/' element={<Home style={logedIn && !darkMode ? logedInStyle : notLogedInStyle}/>} />
+      <Route path='/popular' element={<PopularPage/>} />
       <Route path='/communityBody' element={<CommunityBody/>} />
       <Route path='/submitPost' element={<SubmitPost/>} />
       <Route path='/communityPage' element={<CommunityPage/>}/>
@@ -74,7 +74,7 @@ function App(){
       <Route path='/login' element={<LogInModal/>}/>
       <Route path='/signUp' element={<SignUpModal/>}/>
     </Routes>
-      {!logedIn && <Popular/>}
+      {/* {!logedIn && <Popular/>} */}
       <GoToTop/>
       </DarkMode.Provider>
       </UserLogedIn.Provider>

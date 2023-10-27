@@ -1,29 +1,37 @@
-import React, { useContext } from 'react';
-import { ShowModalContext, UserLogedIn } from '../../App';
+import React, { useContext, useState } from 'react';
+import { UserLogedIn } from '../../App';
 import LogOut from './LogOut';
+import LogInModal from '../Modal/LogInModal';
+import { BsQrCodeScan } from 'react-icons/bs';
+import GetAppModal from '../Modal/GetAppModal';
 
 const RightContent = () => {
-
-  const {setShowLogInModal} = useContext(ShowModalContext);
-  const {setShowSignUpModal} = useContext(ShowModalContext);
+  const [open, setOpen] = useState(false);
+  const [openApp, setOpenApp] = useState(false);
   const { logedIn } = useContext(UserLogedIn);
+
+  const openDialog = () => {
+    setOpen(true);
+  }
+  const openAppDialog = () => {
+    setOpenApp(true);
+  }
   return (
-    
+
     <>
-    
+
       {!logedIn ? <div className='contact-container' >
-{/*        
-          <button className="btn"><Link to="/login" style={{textDecoration:"none", color:"white"}}>Log In</Link></button>
-          <button className="btn"><Link to="/signUp" style={{textDecoration:"none", color:"white"}}>Sign Up</Link></button> */}
-          <button className="btn" onClick={()=>setShowLogInModal(true)}>Log In</button>
-          <button className="btn" onClick={()=>setShowSignUpModal(true)}>Sign Up</button>
-       
-        {/* <Button  display={{ base: "none", sm: "flex"}} mr={2} onClick={()=>setModalLogIn(true)}>Log In</Button>
-        {modalLogIn &&  <LogInModal close={setModalLogIn}/>}
-        <Button id="btn" display={{ base: "none", sm: "flex"}} mr={2} onClick={()=>setModalSignUp(true)}>Sign up</Button>
-        {modalSignUp && <SignUpModal close={setModalSignUp}/>} */}
-      </div> : <LogOut/>}
-      </>
+        <button className='app-btn' style={{ borderRadius: "60px" }} onClick={openAppDialog}>
+          <p>
+            <BsQrCodeScan /> Get app
+          </p>
+        </button>
+        <button className="btn" onClick={openDialog}>Log In</button>
+        {/* <button className="btn" onClick={()=>setShowSignUpModal(true)}>Sign Up</button> */}
+        <LogInModal open={open} setOpen={setOpen} />
+        <GetAppModal openApp={openApp} setOpenApp={setOpenApp}/>
+      </div> : <LogOut />}
+    </>
   )
 }
 

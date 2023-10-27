@@ -1,14 +1,12 @@
 import React, { useContext, useState } from 'react'
-import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import OathButtons from './OathButtons';
 import axios from 'axios';
 import { getHeaderWithProjectIDAndContent } from '../../utils/configs';
-import { ShowModalContext, UserLogedIn } from '../../App';
+import { UserLogedIn } from '../../App';
+import { Dialog } from '@mui/material';
 
-const SignUpModal = () => {
-  const {setShowLogInModal} = useContext(ShowModalContext);
-  const {setShowSignUpModal} = useContext(ShowModalContext);
+const SignUpModal = ({openSignUp, setOpenSignUp}) => {
   const {setLogedIn} = useContext(UserLogedIn);
   const navigate = useNavigate();
 
@@ -76,7 +74,6 @@ const SignUpModal = () => {
       setColor('green')
       signUpInfo(userInfo);
       navigate("/")
-      setShowSignUpModal(false);
       console.log(signUpInfo);
     }
 
@@ -89,14 +86,13 @@ const SignUpModal = () => {
   //     console.log(signUpInfo);
   // };
    
-  const handleClick = () =>{
-    setShowSignUpModal(false);
-    setShowLogInModal(true);
-    
+  const handleClose = () => {
+    setOpenSignUp(false);
   }
-  return createPortal((
+  return (
     <div className="modal-container" >
-      <div className="modal-wrapper" >
+      <Dialog open={openSignUp} onClose={handleClose}>
+      <div className="modal-wrapper" style={{height:"1000px"}}>
         <div className="title">Sign Up</div>
         <OathButtons />
         <div>OR</div>
@@ -106,22 +102,18 @@ const SignUpModal = () => {
           {emailError && <p style={{color: color}}>{emailError}</p>}
           <input name="password" type="password" placeholder="password" onChange={handleOnChange} required />
           {passwordError && <p style={{color: color}}>{passwordError}</p>}
-          {/* <input name="confirmPassword" type="password" placeholder="confirm password" onChange={handleOnChange} required /> */}
           {message && <p style={{ color: color, fontSize: "14px" }}>{message}</p>}
-          {/* loading effect in button */}
           <button className="btn" type='submit' onClick={handleSignupClick}>Sign Up</button>
-          <div>
-            <span>Already a Redditor? <span className="signUp" onClick={handleClick}>LOG IN</span></span>
-          </div>
         </form>
       </div>
+      </Dialog>
     </div>
 
 
 
 
 
-  ), document.getElementById('modal'));
+ );
 }
 
 export default SignUpModal;

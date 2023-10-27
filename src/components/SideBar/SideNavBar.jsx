@@ -8,7 +8,7 @@ return (
     <div className='scroll-box'>
     <ul className='scrollbox-inner'>
       <li><Link to="/"><i className="fa-solid fa-house"></i>Home</Link></li>
-      <li><Link to="/popular"><i className="fa-solid fa-fire-flame-curved"></i>Popular</Link></li>
+      <li><Link to="/popularPage"><i className="fa-solid fa-fire-flame-curved"></i>Popular</Link></li>
       <div className='text'></div>
       <li>TOPICS</li>
       <li><Link to="https://www.reddit.com/t/minecraft/"><i className="fa-solid fa-gamepad"></i>Gaming</Link></li>

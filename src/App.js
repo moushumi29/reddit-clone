@@ -62,7 +62,7 @@ function App(){
   
     <Routes>
       <Route path='/' element={<Home style={logedIn && !darkMode ? logedInStyle : notLogedInStyle}/>} />
-      <Route path='/popular' element={<PopularPage/>} />
+      <Route path='/popularPage' element={<PopularPage/>} />
       <Route path='/communityBody' element={<CommunityBody/>} />
       <Route path='/submitPost' element={<SubmitPost/>} />
       <Route path='/communityPage' element={<CommunityPage/>}/>

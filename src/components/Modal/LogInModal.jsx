@@ -1,17 +1,19 @@
 import React, { useContext, useState } from "react";
-import { createPortal } from "react-dom";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import OathButtons from "./OathButtons";
-import {  ShowModalContext, UserLogedIn } from "../../App";
+import { UserLogedIn } from "../../App";
 import { getHeaderWithProjectIDAndContent } from "../../utils/configs";
+import { Dialog } from "@mui/material";
+import SignUpModal from "./SignUpModal";
 
-const LogInModal = () => {
+const LogInModal = ({open, setOpen}) => {
+  const handleClose = () => {
+    setOpen(false);
+  }
   const navigate = useNavigate();
   const {setLogedIn} = useContext(UserLogedIn);
-
-  const {setShowSignUpModal} = useContext(ShowModalContext);
-  const {setShowLogInModal} = useContext(ShowModalContext);
+  const [openSignUp, setOpenSignUp] = useState(false);
   const [passwordError, setErrorPassword] = useState('');
   const [emailError, setErrorEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -26,9 +28,9 @@ const LogInModal = () => {
     setLoginInfo({...userInfo, [name] : value})
     console.log(userInfo)
   }
-  const handleClick = () =>{
-    setShowLogInModal(false);
-    setShowSignUpModal(true);
+  const openDialog = () => {
+    setOpenSignUp(true);
+    setOpen(false);
   }
 
   const logIn = async(userInfo) =>{
@@ -45,6 +47,8 @@ const LogInModal = () => {
         sessionStorage.setItem("authToken", accessToken);
         sessionStorage.setItem("userInfo", JSON.stringify(res.data.data))
         setLogedIn(true);
+        navigate("/")
+        handleClose();
       } else {
         setMessage("Invalid API response format.");
         setColor("red");
@@ -81,12 +85,7 @@ const LogInModal = () => {
     else{
       setErrorEmail('');
       setErrorPassword('');
-      setMessage('Congrats! You are successfully logged in.');
-      setColor('green')
       logIn(userInfo);
-      navigate("/")
-      setShowLogInModal(false);
-      // console.log(signUpInfo);
     }
 
   }
@@ -100,8 +99,10 @@ const LogInModal = () => {
   //   // navigate("/");
   //   setShowLogInModal(false);
   // }
-  return createPortal((
+  return (
+    
     <div className="modal-container">
+      <Dialog open={open} onClose={handleClose}>
       <div className="modal-wrapper">
         <div className="title">Log In</div>
         <OathButtons />
@@ -115,13 +116,16 @@ const LogInModal = () => {
           <button className="btn" onClick={handleLoginClick}>Log In</button>
           <div>
             <span>Not a Redditor? <span className="signUp" 
-            onClick={handleClick}
+            onClick={openDialog}
             >SIGN UP</span></span>
           </div>
         </form>
       </div>
+      </Dialog>
+      <SignUpModal openSignUp={openSignUp} setOpenSignUp={setOpenSignUp}/>
     </div>
-  ), document.getElementById('modal'))
+
+  )
 
 
 

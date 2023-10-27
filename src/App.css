@@ -67,6 +67,8 @@ body{
     font-size: 10px;
     height: 40px;
     background-color: #111f22;
+    color: white;
+    font-size: 14px;
     /* background-color: rgb(231, 231, 231); */
  }
 .search-input-dark:hover{
@@ -104,6 +106,21 @@ body{
     cursor: pointer;
     /* margin: 0px 5px; */
 }
+.app-btn{
+    border: none;
+    border-radius: 60px;
+    /* background-color: rgb(247, 107, 56); */
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 10px;
+    text-decoration: none;
+    /* height: 38px; */
+    padding: 10px;
+    cursor: pointer;
+    /* margin: 0px 5px; */
+}
 .outline-btn{
     outline: none;
     border: 1px solid rgb(204, 200, 200);
@@ -138,13 +155,27 @@ body{
     gap: 18px;
     justify-content: center;
     margin-top: 10px;
-    width: 30%;
     background-color: white;
     color: black;
-    padding: 2.8rem 4rem;
+    padding: 2rem 4rem;
     text-align: center;
     border: none;
+    width: 430px;
     border-radius: 8px;
+}
+.app-modal{
+    padding: 35px;
+    text-align: center;
+    position: relative;
+}
+.close-btn{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    padding: 6px;
+    border-radius: 50%;
+    border: none;
+    font-size: 16px;
 }
 .title{
     font-size: 2rem;

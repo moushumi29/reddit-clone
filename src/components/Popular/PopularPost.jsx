@@ -71,7 +71,7 @@ const PopularPost = () => {
                                         </div>
                                     </div>
                                     {/* <div style={{fontSize:'16px', fontWeight:"600", paddingBottom:"8px"}}>{title}</div> */}
-                                    <div className={`content-home-${darkMode?"dark":"light"}`}>{description}</div>
+                                    <div className={`content-home-${darkMode?"light":"dark"}`}>{description}</div>
                                     <div className='popular-img-container'>
                                         <img src={image} alt={name} className='popular-channel-image'/>
                                     </div>

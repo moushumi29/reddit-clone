@@ -17,14 +17,16 @@ import PopularComponent from './components/Popular/PopularComponent';
 import Notification from './pages/comigSoon/Notification';
 import Message from './pages/comigSoon/Message';
 import PopularPage from './pages/PopularPage';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import SinglePage from './pages/SinglePage';
 
-export const ShowModalContext = createContext();
 export const UserLogedIn = createContext();
 export const DarkMode = createContext();
 
 function App(){
-  const [showLogInModal, setShowLogInModal] = useState(false);
-  const [showSignUpModal, setShowSignUpModal] = useState(false);
+  // const [showLogInModal, setShowLogInModal] = useState(false);
+  // const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [logedIn, setLogedIn] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
@@ -49,15 +51,15 @@ function App(){
 
   return (
     <div>
-    <ShowModalContext.Provider value={{setShowLogInModal, setShowSignUpModal}}>
       <UserLogedIn.Provider value={{logedIn, setLogedIn}}>
       <DarkMode.Provider value={{darkMode, setDarkMode}}>
+      
       {logedIn ? <LogedInNavbar/>: <Navbar/>}
       {/* {!logedIn && <Navbar/>} */}
-    
-    
-    {showLogInModal && <LogInModal/>}
-    {showSignUpModal && <SignUpModal/>}
+     
+      <ToastContainer position="top-center" />
+    {/* {showLogInModal && <LogInModal/>}
+    {showSignUpModal && <SignUpModal/>} */}
     {/* {!logedIn && <SideNavBar/>} */}
   
     <Routes>
@@ -71,6 +73,7 @@ function App(){
       <Route path='/popular' element={<PopularComponent/>} />
       <Route path='/notification' element={<Notification/>} />
       <Route path='/message' element={<Message/>} />
+      <Route path='/singlePage' element={<SinglePage/> } />
       <Route path='/login' element={<LogInModal/>}/>
       <Route path='/signUp' element={<SignUpModal/>}/>
     </Routes>
@@ -78,7 +81,6 @@ function App(){
       <GoToTop/>
       </DarkMode.Provider>
       </UserLogedIn.Provider>
-    </ShowModalContext.Provider>
       
     </div>
 

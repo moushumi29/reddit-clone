@@ -27,7 +27,6 @@ const RightContent = () => {
           </p>
         </button>
         <button className="btn" onClick={openDialog}>Log In</button>
-        {/* <button className="btn" onClick={()=>setShowSignUpModal(true)}>Sign Up</button> */}
         <LogInModal open={open} setOpen={setOpen} />
         <GetAppModal openApp={openApp} setOpenApp={setOpenApp}/>
       </div> : <LogOut />}

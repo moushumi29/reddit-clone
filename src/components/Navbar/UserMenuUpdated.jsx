@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaRedditSquare } from 'react-icons/fa';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import { IoSparkles } from 'react-icons/io5';
-import { ChevronDownIcon } from '@chakra-ui/icons';
 import { DarkMode, UserLogedIn } from '../../App';
 
 const buttonStyles = {
@@ -21,6 +20,16 @@ const buttonStyles = {
     backgroundColor: '#f4f3f3'
   }
 
+}
+const boxStyle = {
+  color: 'black',
+  fontWeight: '100',
+  fontSize:"14px",
+  width: '100%',
+  p: '5px 20px',
+  justifyContent: 'flex-start',
+  textAlign: 'left',
+  textTransform: 'inherit',
 }
 
 const iconStyles = {
@@ -59,26 +68,21 @@ const info = JSON.parse(username);
               <span style={{color: `${darkMode?"white":"black"}`, fontSize:"12px"}}>1 karma</span>
             </div>
           </div>
-        <ChevronDownIcon/>
       </div>
       </Box>
 
       <Box>
         <Box sx={{ borderBottom: '1px solid #d5d1d1', py: '10px' }}>
           <Box>
-            <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}>My Stuff</Button>
+            <Box sx={{...boxStyle, color: `${darkMode?"white":"black"}`}}>My Stuff</Box>
             <Link to='/comingSoon'><Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}><AccountCircleIcon sx={iconStyles} onClick={()=>navigate()} /> Profile</Button></Link>
             <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}} onClick={()=>navigate('/premiumPage')}><LocalPoliceIcon sx={iconStyles}/> Premium</Button>
             <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}} onClick={()=>navigate('/submitPost')}><AddIcon sx={iconStyles}/> Create a Post</Button>
-            {/* <Button sx={buttonStyles}><CampaignOutlinedIcon sx={iconStyles} /> Your Content & Stats</Button>
-            <Button sx={buttonStyles}><BookmarksOutlinedIcon sx={iconStyles} /> Bookmarks</Button>
-            <Button sx={buttonStyles}><EditCalendarOutlinedIcon sx={iconStyles} /> Drafts</Button>
-            <Button sx={buttonStyles}><AddIcon sx={iconStyles} />Premium</Button> */}
           </Box>
         </Box>
         <Box sx={{ borderBottom: '1px solid #d5d1d1', py: '10px' }}>
           <Box>
-          <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}}>View Options</Button>
+          <Box sx={{...boxStyle, color: `${darkMode?"white":"black"}`}}>View Options</Box>
             <Button sx={{...buttonStyles, color: `${darkMode?"white":"black"}`}} onClick={toggleDarkMode}>
               {darkMode ? 'Light Mode' : 'Dark Mode'}
               <Switch sx={{ ml: '30px' }} checked={darkMode} readOnly />

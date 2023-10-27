@@ -136,8 +136,12 @@ body{
     color: black;
     list-style: none;
     position: absolute; 
+    cursor: pointer;
     top: 60px;
-    padding: 4px 0px;
+    padding: 6px 4px;
+}
+.list-dropdown:hover{
+    background-color: lightgray;
 }
 
 ::-webkit-scrollbar{
@@ -309,8 +313,13 @@ body{
     display: flex;
     align-items: center;
     padding-top: 12px;
+    padding-left: 10px;
     justify-content: space-between;
     width:200px;
+    cursor: pointer;
+}
+.icon-drop{
+    margin-left: 20px;
 }
 .community-body-conatiner{
     display:flex;
@@ -945,11 +954,55 @@ body{
 
     
 }
+
+.comment-box-light{
+    /* border: 1px solid black; */
+    margin: 10px 10px;
+    padding: 10px;
+    background-color: #ebebeb;
+    border-radius: 10px;
+}
+.comment-box-dark{
+    margin: 10px 10px;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+}
+.user-info{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: gray;
+}
+.comment-content{
+    padding: 10px 0px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.comment-input{
+    margin: 10px 10px;
+    position: relative;
+}
+.comment-input input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: transparent;
+}
+.comment-arrow{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.link{
+    text-decoration: none;
+}
 @media  screen and (max-width: 680px) {
     .image-text{
         display: none;
     }
-    .btn{
+    .app-btn{
         display: none;
     }
     .top-btn {
@@ -971,6 +1024,9 @@ body{
     .dropdown-container{
         width: fit-content;
     }
+    .icon-drop{
+        margin-left: 0px;
+    }
     .home-text{
         display: none;
     }
@@ -980,11 +1036,20 @@ body{
     .body-2{
         display: none;
     }
+    .community-body-wrapper{
+        width: 100%;
+        padding: 12px 11px;
+    }
+    .channel-container{
+        flex-direction: column;
+        gap: 0px;
+        align-items: flex-start ;
+    }
     .premium-header h1{
         font-size: large;
     }
 }
-@media screen and (max-width: 1280px){
+@media screen and (max-width: 1200px){
     .main-popular-container{
         display: none;
       }

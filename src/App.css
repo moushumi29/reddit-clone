@@ -151,6 +151,7 @@ body{
 }
 .modal-wrapper{
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 18px;
     justify-content: center;
@@ -550,10 +551,14 @@ nav ul li a i{
 }
 
 @media  screen and (max-width: 680px) {
+    .logo-img{
+        align-items: center;
+        margin-top: 5px;
+    }
     .image-text{
         display: none;
     }
-    .btn{
+    .app-btn{
         display: none;
     }
     .top-btn {
@@ -570,7 +575,7 @@ nav ul li a i{
         width: 100%;
       }
 }
-@media screen and (max-width: 1280px){
+@media screen and (max-width: 1200px){
     .side-navbar{
         flex-grow: 1;
         position: absolute;

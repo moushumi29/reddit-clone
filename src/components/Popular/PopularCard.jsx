@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
-import { ShowModalContext } from '../../App';
+import React from 'react'
+import { toast } from 'react-toastify';
 
 const PopularCard = (props) => {
-    const { setShowLogInModal } = useContext(ShowModalContext)
   const { description,name, image, createdAt, owner } = props;
-  const handleClick = () =>{
-    setShowLogInModal(true);
+  const handleClick = () => {
+    toast.error("Log in first", {
+      theme:"light"
+    })
   }
   return (
     <div className='feed-wrapper'>

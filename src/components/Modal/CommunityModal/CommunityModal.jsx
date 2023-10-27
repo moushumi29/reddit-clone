@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { createPortal } from "react-dom";
 import { BsFillEyeFill, BsFillPersonFill } from "react-icons/bs";
 import { HiLockClosed } from "react-icons/hi";
 import { getAuthHeaderConfig } from "../../../utils/configs";
 import { useNavigate } from "react-router-dom";
+import { Dialog } from "@mui/material";
 
-const CommunityModal = ({ open, handleClose }) => {
+const CommunityModal = ({ openDialog, setOpenDialog }) => {
   const [communityName, setCommunityName] = useState("");
   const [charactersRemaining, setCharcatersRemainig] = useState(21);
   const [communityType, setCommunityType] = useState("public");
@@ -49,50 +49,55 @@ const CommunityModal = ({ open, handleClose }) => {
     }
   }
 
+  const handleClose = () => {
+    setOpenDialog(false);
+  }
+  
   const handleCommunity = () =>{
     createSubReddit(communityName);
     handleClose();
     navigate("/communityPage");
     
   }
-  return createPortal((
+  return(
     <>
-      {open && <div className="modal-container">
-        <div className="modal-wrapper" style={{ padding: "1rem", width: "40%" }}>
+     <div className="modal-container">
+      <Dialog open={openDialog} onClose={handleClose}>
+        <div className="modal-wrapper" style={{ padding: "2rem", width:"570px" }}>
           <div className="title" style={{ fontSize: "18px", paddingBottom: "1rem", borderBottom: "1px solid rgba(0, 0, 0, 0.1)" }}>Create a community</div>
           <div className='community-body'>
             <span style={{ fontWeight: 600 }}>Name</span>
-            <span style={{ fontSize: "12px", color: "lightgrey" }}
+            <span style={{ fontSize: "12px", color: "grey" }}
             >Community names including capitalization cannot be changed</span>
-            <span style={{ position: "relative", top: "28px", left: '10px', width: '20px', color: "#ddd" }}>r/</span>
+            <span style={{ position: "relative", top: "28px", left: '10px', width: '20px', color: "grey" }}>r/</span>
             <input type="text" className='community-input' value={communityName} onChange={handleChange} />
-            <span style={{ color: "#ddd", fontSize: "12px" }}>{charactersRemaining} Charcters remaining</span>
+            <span style={{ color: "grey", fontSize: "12px" }}>{charactersRemaining} Charcters remaining</span>
             <div style={{ paddingTop: '1rem' }} >
               <div style={{ fontWeight: 600, paddingBottom:'10px' }}>Community Type</div>
               <div>
               <input type='checkbox' id='public' name="public" checked={communityType === 'public'} onChange={onCommunitytypeChnage} className="check-box-input"/>
               <label htmlFor="public" >
-                <BsFillPersonFill style={{ color: "#ddd", marginRight: "10px" }} />
+                <BsFillPersonFill style={{ color: "grey", marginRight: "10px" }} />
                 <span style={{ fontSize: "15px", marginRight: '10px' }}>Public</span>
-                <span style={{ fontSize: "12px", color: "lightgrey" }}
+                <span style={{ fontSize: "12px", color: "grey" }}
                 >Anyone can view, post, and comment to this community</span>
               </label>
               </div>
               <div>
               <input type='checkbox' id='restricted' name="restricted" checked={communityType === 'restricted'} onChange={onCommunitytypeChnage} className="check-box-input"/>
               <label htmlFor="restricted" >
-                <BsFillEyeFill style={{ color: "#ddd", marginRight: "10px" }} />
+                <BsFillEyeFill style={{ color: "grey", marginRight: "10px" }} />
                 <span style={{ fontSize: "15px", marginRight: '10px' }}>Restricted</span>
-                <span style={{ fontSize: "12px", color: "lightgrey" }}
+                <span style={{ fontSize: "12px", color: "grey" }}
                 >Anyone can view this community, but only approved users can post</span>
               </label>
               </div>
               <div>
               <input type='checkbox' id='private' name="private" checked={communityType === 'private'} onChange={onCommunitytypeChnage} className="check-box-input"/>
               <label htmlFor="private" >
-                <HiLockClosed style={{ color: "#ddd", marginRight: "10px" }} />
+                <HiLockClosed style={{ color: "grey", marginRight: "10px" }} />
                 <span style={{ fontSize: "15px", marginRight: '10px', fontWeight: 500 }}>Private</span>
-                <span style={{ fontSize: "12px", color: "lightgrey" }}
+                <span style={{ fontSize: "12px", color: "grey" }}
                 >Only approved users can view and submit to this community</span>
               </label>
               </div>
@@ -104,10 +109,10 @@ const CommunityModal = ({ open, handleClose }) => {
           </footer>
           
         </div>
-        
-      </div>}
+        </Dialog>
+      </div>
       </>
-  ), document.getElementById('modal'))
+)
     }
 
 export default CommunityModal

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { getHeaderWithProjectIDAndContent } from '../../utils/configs';
 import { UserLogedIn } from '../../App';
 import { Dialog } from '@mui/material';
+import { toast } from 'react-toastify';
 
 const SignUpModal = ({openSignUp, setOpenSignUp}) => {
   const {setLogedIn} = useContext(UserLogedIn);
@@ -39,9 +40,21 @@ const SignUpModal = ({openSignUp, setOpenSignUp}) => {
       );
       console.log("res", res);
       if(res.data.token){
+        toast.success("Sign Up Successfull", {
+          theme:"light"
+        })
         sessionStorage.setItem("authToken", res.data.token);
         sessionStorage.setItem("userInfo", JSON.stringify(res.data.data.user));
         setLogedIn(true);
+        navigate("/")
+      }else{
+        setMessage("Invalid API response format.");
+        setColor("red");
+        toast.error("Something went wrong",
+        {
+          theme: "light",
+          autoClose: 4000,
+        });
       }
     }catch(err){
       if(err){
@@ -73,8 +86,6 @@ const SignUpModal = ({openSignUp, setOpenSignUp}) => {
       setMessage('Congrats! You are successfully logged in.');
       setColor('green')
       signUpInfo(userInfo);
-      navigate("/")
-      console.log(signUpInfo);
     }
 
   }

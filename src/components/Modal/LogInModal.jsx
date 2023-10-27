@@ -6,6 +6,7 @@ import { UserLogedIn } from "../../App";
 import { getHeaderWithProjectIDAndContent } from "../../utils/configs";
 import { Dialog } from "@mui/material";
 import SignUpModal from "./SignUpModal";
+import { toast } from "react-toastify";
 
 const LogInModal = ({open, setOpen}) => {
   const handleClose = () => {
@@ -26,7 +27,6 @@ const LogInModal = ({open, setOpen}) => {
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setLoginInfo({...userInfo, [name] : value})
-    console.log(userInfo)
   }
   const openDialog = () => {
     setOpenSignUp(true);
@@ -43,6 +43,11 @@ const LogInModal = ({open, setOpen}) => {
       );
       console.log('res', res)
       if (res.data.token) {
+        toast.success("Login Successful",
+        {
+          theme: "light",
+          autoClose: 4000,
+        });
         const accessToken = res.data.token;
         sessionStorage.setItem("authToken", accessToken);
         sessionStorage.setItem("userInfo", JSON.stringify(res.data.data))
@@ -52,6 +57,11 @@ const LogInModal = ({open, setOpen}) => {
       } else {
         setMessage("Invalid API response format.");
         setColor("red");
+        toast.error("Something went wrong",
+        {
+          theme: "light",
+          autoClose: 4000,
+        });
       }
     } catch (err) {
       if (err.response && err.response.data && err.response.data.message) {
@@ -86,6 +96,7 @@ const LogInModal = ({open, setOpen}) => {
       setErrorEmail('');
       setErrorPassword('');
       logIn(userInfo);
+      
     }
 
   }

@@ -20,6 +20,8 @@ import PopularPage from './pages/PopularPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SinglePage from './pages/SinglePage';
+import SearchPage from './pages/SearchPage';
+import SearchPageWrapper from './pages/SearchPageWrapper';
 
 export const UserLogedIn = createContext();
 export const DarkMode = createContext();
@@ -28,6 +30,7 @@ function App(){
   // const [showLogInModal, setShowLogInModal] = useState(false);
   // const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [logedIn, setLogedIn] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
   const logedInStyle = {
@@ -51,7 +54,7 @@ function App(){
 
   return (
     <div>
-      <UserLogedIn.Provider value={{logedIn, setLogedIn}}>
+      <UserLogedIn.Provider value={{logedIn, setLogedIn, searchTerm, setSearchTerm}}>
       <DarkMode.Provider value={{darkMode, setDarkMode}}>
       
       {logedIn ? <LogedInNavbar/>: <Navbar/>}
@@ -73,7 +76,7 @@ function App(){
       <Route path='/popular' element={<PopularComponent/>} />
       <Route path='/notification' element={<Notification/>} />
       <Route path='/message' element={<Message/>} />
-      <Route path='/singlePage' element={<SinglePage/> } />
+      <Route path='/searchPage' element={<SearchPageWrapper/> } />
       <Route path='/login' element={<LogInModal/>}/>
       <Route path='/signUp' element={<SignUpModal/>}/>
     </Routes>

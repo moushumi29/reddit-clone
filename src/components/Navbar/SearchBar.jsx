@@ -1,28 +1,36 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { DarkMode, UserLogedIn } from '../../App';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
-  
-  const { logedIn } = useContext(UserLogedIn);
+  const navigate = useNavigate();
+  const { logedIn, setSearchTerm } = useContext(UserLogedIn);
   const { darkMode } = useContext(DarkMode);
-    return (
-          <div className="search-bar">
-            
-                <input className={`search-input-${(logedIn && !darkMode)? "light" :"dark"}`} placeholder='Search Reddit' />
-         </div>
-         )
+  // const [searchValue, setSearchValue] = useState('');
+
+  const onChange = (e) => {
+    setSearchTerm(e.target.value);
+  }
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    navigate('/searchPage')
+    setSearchTerm("");
+  }
+
+  // const clearSearch = () => {
+  //   setSearchValue('');
+  //   // setSearchTerm(''); // Clear the search term in your context if needed
+  // }
+
+  return (
+    <form className="search-bar" onSubmit={handleOnSubmit}>
+
+      <input className={`search-input-${(logedIn && !darkMode) ? "light" : "dark"}`} 
+      // value={searchValue} 
+      placeholder='Search Reddit' onChange={onChange}/>
+    </form>
+  )
 }
-          // <Box sx={{  bgcolor:"#04090A",}} >
-    //   <Search  sx={{ flexGrow: 1, color:'white', fontWeight:100, fontSize:"10px", borderRadius:"17px", ml: 4
-    // }} className={classes.myComponent}>
-    //       <SearchIconWrapper>
-    //         <SearchIcon sx={{color:"grey"}} />
-    //       </SearchIconWrapper>
-    //       <StyledInputBase
-    //         placeholder="Search Reddit"
-    //         inputProps={{ 'aria-label': 'search' }}
-    //       />
-    //     </Search>
-  // </Box>
 
 export default SearchBar;

@@ -514,7 +514,7 @@ body{
 .post-conatiner-dark{
     display: flex;
     border: 1px solid #ddd;
-    background-color: #383838;
+    background-color: #0B1416;
     border-radius: 6px;
     cursor: pointer;
     overflow: hidden;
@@ -636,7 +636,7 @@ body{
 .post-btn-dark{
     border: none;
     padding: 12px 12px;
-    background-color:#383838;
+    background-color:#0B1416;
     color: #ddd;
     font-size: 14px;
 }
@@ -706,7 +706,7 @@ body{
     padding: 10px;
 }
 .second-body-1-dark{
-    background-color: #383838;
+    background-color: #0B1416;
     border-radius: 4px;
     margin-bottom: 20px;
     padding: 10px;
@@ -756,7 +756,7 @@ body{
 }
 .second-tab-container-body-dark{
     width: 320px;
-    background-color: #383838;
+    background-color: #0B1416;
     color: #ddd;
     display: flex;
     flex-direction: column;
@@ -793,7 +793,7 @@ body{
 .second-body-3-dark{
     position: sticky;
     top: 74px;
-    background-color: #383838;
+    background-color: #0B1416;
     color: #ddd;
     margin-top: 20px;
     padding: 10px;
@@ -1047,6 +1047,24 @@ body{
     }
     .premium-header h1{
         font-size: large;
+    }
+    .cards-container{
+        display: block;
+        margin: 20px 0px;
+    }
+    .card{
+        margin-bottom: 10px;
+    }
+    .join-premium{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-premium{
+        padding: 0px 10px;
     }
 }
 @media screen and (max-width: 1200px){

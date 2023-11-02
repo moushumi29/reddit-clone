@@ -9,7 +9,6 @@ const Feed = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleInfiniteScroll = async() =>{
-      console.log("scroll-height", document.documentElement.scrollHeight)
         try {
           if(window.innerHeight + document.documentElement.scrollTop + 1 >= 
             document.documentElement.scrollHeight){
@@ -34,9 +33,8 @@ const Feed = () => {
             return res.json();
         })
         .then((data)=>{
-          console.log("Feeds Response", data.data);
           setFeedsList((prev)=> [...prev, ...data.data]);
-            setIsLoading(false);
+          setIsLoading(false);
         })
         .catch((err)=>{
             console.log(err);
@@ -52,9 +50,9 @@ const Feed = () => {
     //loading
     <div className='main-feed-container'>
     {isLoading ? <div>Loading...</div>:
-      (feedsList.length && feedsList.map(({_id, ...feed})=>{
+      (feedsList.length && feedsList.map(({...feed}, i)=>{
         return (
-            <FeedCard key={_id} {...feed}/>
+            <FeedCard key={i} {...feed}/>
         )
 
       }))}

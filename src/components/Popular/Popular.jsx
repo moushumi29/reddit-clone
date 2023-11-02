@@ -12,7 +12,6 @@ const Popular = () => {
     setIsLoading(true);
     try{
       const res = await axios.get("https://academics.newtonschool.co/api/v1/reddit/channel", config);
-      console.log("PopularRes", res.data.data);
       setPopularList(res.data.data);
 
     }catch(err){

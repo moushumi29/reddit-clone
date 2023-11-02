@@ -1,6 +1,5 @@
 import React, { useContext, useRef, useState } from 'react'
 import { BsChat, BsFillPersonFill } from "react-icons/bs"
-import { AiOutlineDelete } from "react-icons/ai"
 import { ImArrowUp } from 'react-icons/im'
 import { ImArrowDown } from 'react-icons/im'
 import { TfiArrowRight } from 'react-icons/tfi'
@@ -158,7 +157,7 @@ const HomePost = (props) => {
             {/* <img src={images}/> */}
         </div>
         <div>
-            <button className={`post-btn-${darkMode?"dark":"light"}`} onClick={handleCommentSec}><BsChat/> <span>{commentCount} comments</span></button>
+            <button className={`post-btn-${darkMode?"dark":"light"}`} onClick={handleCommentSec}><BsChat/> <span>{commentCounts} comments</span></button>
             {/* <button className={`post-btn-${darkMode?"dark":"light"}`}><AiOutlineDelete/> Delete</button> */}
         </div>
         <div>

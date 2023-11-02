@@ -32,7 +32,6 @@ const HomeFeedPost = () => {
             return res.json();
         })
         .then((data)=>{
-          console.log("Feeds Response", data.data);
             setPostList((prev)=> [...prev, ...data.data]);
             setIsLoading(false);
         })

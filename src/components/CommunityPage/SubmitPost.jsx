@@ -8,11 +8,14 @@ const SubmitPost = () => {
     const [post, setPost] = useState(true);
     const [images, setImages] = useState(false);
     const { darkMode } = useContext(DarkMode)
-    const handleClick = () =>{
-        setPost(!post);
-        setImages(!images)
+    const handlePost = () =>{
+        setPost(true);
+        setImages(false)
     }
-
+    const handleImages = () => {
+        setPost(false);
+        setImages(true)
+    }
     const [textInputs, setTextInputs] = useState({
         title: '',
         content: ''
@@ -69,11 +72,11 @@ const SubmitPost = () => {
                     <div className={`submit-header-${darkMode?"dark":"light"}`} >Create a Post</div>
                     <div className={`submit-body-${darkMode?"dark":"light"}`}>
                         <div style={{ width: "100%", display: "flex" }}>
-                            <div className={`submit-post-element-${darkMode?"dark":"light"}`} onClick={handleClick}>
+                            <div className={`submit-post-element-${darkMode?"dark":"light"}`} onClick={handlePost}>
                                 <div className='submit-post-icon'><IoDocumentText /></div>
                                 <div style={{ fontSize: "18px" }}>Post</div>
                             </div>
-                            <div className={`submit-post-element-${darkMode?"dark":'light'}`}onClick={handleClick}>
+                            <div className={`submit-post-element-${darkMode?"dark":'light'}`}onClick={handleImages}>
                                 <div className="submit-post-icon"><IoImageOutline /></div>
                                 <div style={{ fontSize: "18px" }}>Images & Videos</div>
                             </div>
@@ -89,7 +92,7 @@ const SubmitPost = () => {
                             {selectedFile? (<div style={{justifyContent:"center", alignItems:"center"}}>
                                 <img src={selectedFile} alt="uploadedimage" className='uploaded-image'/>
                                 <div>
-                                <button className='full' onClick={handleClick}>Back to Post</button>
+                                <button className='full' onClick={handlePost}>Back to Post</button>
                                 <button className='full' onClick={()=> setSelectedFile('')}>Remove</button>
                                 </div>
                                 </div>):(<div className='file-content'>

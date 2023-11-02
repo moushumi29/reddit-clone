@@ -19,8 +19,6 @@ import Message from './pages/comigSoon/Message';
 import PopularPage from './pages/PopularPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SinglePage from './pages/SinglePage';
-import SearchPage from './pages/SearchPage';
 import SearchPageWrapper from './pages/SearchPageWrapper';
 
 export const UserLogedIn = createContext();

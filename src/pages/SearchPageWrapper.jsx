@@ -4,7 +4,6 @@ import CreatePostLink from '../components/CommunityPage/CreatePostLink'
 import SecondTabLogedIn from '../components/Feed/SecondTabLogedIn'
 import { UserLogedIn } from '../App'
 import SideNavBar from '../components/SideBar/SideNavBar'
-import { Feed } from '@mui/icons-material'
 import Popular from '../components/Popular/Popular'
 
 const SearchPageWrapper = () => {

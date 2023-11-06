@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import OathButtons from './OathButtons';
 import axios from 'axios';
 import { getHeaderWithProjectIDAndContent } from '../../utils/configs';
 import { UserLogedIn } from '../../App';
@@ -103,10 +102,10 @@ const SignUpModal = ({openSignUp, setOpenSignUp}) => {
   return (
     <div className="modal-container" >
       <Dialog open={openSignUp} onClose={handleClose}>
-      <div className="modal-wrapper" style={{height:"1000px"}}>
+      <div className="modal-wrapper">
         <div className="title">Sign Up</div>
-        <OathButtons />
-        <div>OR</div>
+        {/* <OathButtons />
+        <div>OR</div> */}
         <form >
           <input name="name" type="text" placeholder="username" onChange={handleOnChange} required />
           <input name="email" type="email" placeholder="email" onChange={handleOnChange} required />

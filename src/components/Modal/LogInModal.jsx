@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
-import OathButtons from "./OathButtons";
 import { UserLogedIn } from "../../App";
 import { getHeaderWithProjectIDAndContent } from "../../utils/configs";
 import { Dialog } from "@mui/material";
@@ -116,8 +115,8 @@ const LogInModal = ({open, setOpen}) => {
       <Dialog open={open} onClose={handleClose}>
       <div className="modal-wrapper">
         <div className="title">Log In</div>
-        <OathButtons />
-        <div>OR</div>
+        {/* <OathButtons />
+        <div>OR</div> */}
         <form >
           <input name="email" type="email" placeholder="email" onChange={handleOnChange} />
           {emailError && <p style={{color: color}}>{emailError}</p>}

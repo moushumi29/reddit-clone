@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 const PremiumPage = () => {
     // const monthlyPlan = () =>{
@@ -8,6 +9,18 @@ const PremiumPage = () => {
     // const yearlyPlan = () =>{
     //     navigate('https://buy.stripe.com/test_dR6eXhcvwgotayYcMN')
     // }
+    const handlePayment = () => {
+        toast('🦄 Feature Coming Soon', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+    }
     return (
         <>
             <div className='premium-page-container'>
@@ -19,8 +32,8 @@ const PremiumPage = () => {
                     Help support Reddit and get VIP treatment and exclusive access.
                 </div>
                 <div className='premium-plan'>
-                    <button className='month-plan' >$5.99/Month</button>
-                    <button className='year-plan' >$49.99/Year<span>Save 30%</span></button>
+                    <button className='month-plan' onClick={handlePayment}>$5.99/Month</button>
+                    <button className='year-plan' onClick={handlePayment}>$49.99/Year<span>Save 30%</span></button>
                 </div>
                 <div style={{ color: "white", fontSize: "14px", marginLeft: "10px" }}>Subscriptions automatically renew</div>
             </div>
@@ -49,8 +62,8 @@ const PremiumPage = () => {
                     </div>
                 </div>
                 <div className='premium-plan'>
-                <button className='month-plan-join' >$5.99/Month</button>
-                <button className='year-plan' >$49.99/Year<span>Save 30%</span></button>
+                <button className='month-plan-join' onClick={handlePayment}>$5.99/Month</button>
+                <button className='year-plan' onClick={handlePayment}>$49.99/Year<span>Save 30%</span></button>
                 </div>
                 <p style={{fontSize:"13px", paddingTop:"10px"}}>Subscriptions automatically renew</p>
                 <p style={{fontSize:"13px", paddingTop:"10px"}}>* Custom app icons are only available through a paid Reddit Premium Subscription.</p>
